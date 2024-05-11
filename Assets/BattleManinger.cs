@@ -33,9 +33,12 @@ public class BattleManinger : MonoBehaviour
        
 
         // Start the battle
+       
+    }
+    public void startfun()
+    {
         StartCoroutine(StartBattle());
     }
-
     IEnumerator StartBattle()
     {
         // Loop until one side runs out of units
@@ -71,9 +74,18 @@ public class BattleManinger : MonoBehaviour
             var enemyUnitIndex = Random.Range(0, enemyUnits.Count);
             var enemyUnit = enemyUnits[enemyUnitIndex];
             Debug.Log(playerUnit.name + " attacks " + enemyUnit.name + "!");
+
+            // Stretch the player sprite (increase scale)
+          
+
             enemyUnit.TakeDamage(playerUnit.attackDamage);
 
-            yield return new WaitForSeconds(1.5f); // Delay for visual effect
+            yield return new WaitForSeconds(0.5f); // Short delay for visual effect
+
+            // Unstretch the player sprite (reset scale)
+           
+
+            yield return new WaitForSeconds(1.0f); // Delay for visual effect
 
             // Check if the enemy unit is defeated
             if (!enemyUnit.IsAlive())
@@ -83,6 +95,7 @@ public class BattleManinger : MonoBehaviour
             }
         }
     }
+
 
     IEnumerator EnemyTurn()
     {

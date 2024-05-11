@@ -25,5 +25,11 @@ public class Unit : MonoBehaviour
         health -= damage;
         Debug.Log(name + " takes " + damage + " damage. Remaining health: " + health);
     }
+
+    public void GetItem(int hp,int dmg)
+    {
+        health += hp;
+        attackDamage += dmg;
+    }
    
 }

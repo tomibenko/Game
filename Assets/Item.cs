@@ -11,6 +11,7 @@ public class Item : MonoBehaviour
     public string name;
     public int health;
     public int attackDamage;
+    public Sprite[] itemSprites;
 
     public Item(string _name, int _health, int _attackDamage)
     {
@@ -19,6 +20,14 @@ public class Item : MonoBehaviour
         attackDamage = _attackDamage;
     }
 
+
+    public void InitializeItem(Sprite sprite, int _health, int _attackDamage)
+    {
+        GetComponent<SpriteRenderer>().sprite = sprite;
+        name = sprite.name;
+        health = _health;
+        attackDamage = _attackDamage;
+    }
 
     void OnMouseDown()
     {
